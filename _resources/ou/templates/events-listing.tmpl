@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/events-listing.xsl" title="HTML" extension="html"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<ouc:info><tcf><!--%echo var="tcfname" --></tcf><tmpl>events-listing.tmpl</tmpl></ouc:info>
+
+	<ouc:properties label="metadata">
+		<title><!--%echo var="title" --></title>
+		<meta name="Description" content="<!--%echo var='description' -->" />
+		<meta name="Keywords" content="<!--%echo var='keywords' -->" />
+	</ouc:properties>
+
+	<ouc:properties label="config">
+		<parameter group="Everyone" type="text" name="heading" prompt="Page Heading" alt="Please enter the page heading."><!--%echo var="title" --></parameter>
+		<parameter group="Everyone" type="text" name="breadcrumb" prompt="Breadcrumb" alt="Please enter the breadcrumb text. This is not used on index pages."><!--%echo var="title" --></parameter>
+	</ouc:properties>
+
+	<ouc:properties label="events-list">
+		<parameter group="Everyone" type="text" name="items-per-page" prompt="# of Items per Page" alt="Set the number of items to display per page. When the field is blank, it will default to 10. To display all items on one page, enter -1.">10</parameter>
+		<parameter group="Everyone" type="text" name="filter-tags" prompt="Filter Tags" alt="Enter a comma-separated list of 1 or more tags to filter the main news feed."></parameter>
+		<parameter group="Everyone" type="select" name="filter-strength" prompt="Filter Type" alt="Choose the behavior of the above tag filter.">
+			<option value="and" selected="false">Must Contain All Tags</option>
+			<option value="or" selected="true">Contains At Least One Tag</option>
+		</parameter>
+	</ouc:properties>
+
+
+	<ouc:properties label="meta-tags">
+		<parameter section="Social Meta Tags" name="override-og-type" type="text" group="Everyone" prompt="Og Type" alt="Please enter the open graph type."></parameter>
+		<parameter name="override-og-image" type="filechooser" group="Everyone" prompt="Og Image" alt="Please choose the open graph image." dependency="yes"></parameter>
+		<parameter name="override-og-image-alt" type="text" group="Everyone" prompt="Og Image Alt" alt="Please enter the open graph image alt text."></parameter>
+		<parameter name="override-og-description" type="textarea" group="Everyone" prompt="Og Description" alt="Please enter the open graph description." rows="7"></parameter>
+		<parameter name="override-twitter-card-description" type="text" group="Everyone" prompt="Twitter Card Description" alt="Please enter the twitter card description. This description will trimmed at 200 characters per Twitter Documentation. This image size needs to be below 5MB in size per Twitter Documentation."></parameter>
+		<parameter name="override-twitter-card-image" type="filechooser" group="Everyone" prompt="Twitter Card Image" alt="Please choose the twitter card image. " dependency="yes"></parameter>
+		<parameter name="override-twitter-card-image-alt" type="text" group="Everyone" prompt="Twitter Card Image Alt" alt="Please enter the twitter card image alt text. This alt text will be trimmed at a length of 420 characters per Twitter Documentation."></parameter>
+		<parameter name="override-twitter-card-type" type="select" group="Everyone" prompt="Twitter Card Type" alt="Please choose the twitter card type.">
+			<option value="summary" selected="false"></option>
+			<option value="summary_large_image" selected="true"></option>
+		</parameter>
+	</ouc:properties>
+
+
+	<ouc:div label="maincontent" group="Everyone" button-text="Main Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="maincontent"/></ouc:div>
+
+	<ouc:div label="subcontent" group="Everyone" button-text="Sub-Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="full-width"/></ouc:div>
+
+
+	<ouc:div label="full-width-content" group="Everyone" button-text="Full Width Content">
+		<ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="full-width"/>
+	</ouc:div>
+
+
+	<ouc:div label="side-content" group="Everyone" button-text="Side Content">
+		<ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="additional-content"/>
+	</ouc:div>
+
+
+
+
+</document>

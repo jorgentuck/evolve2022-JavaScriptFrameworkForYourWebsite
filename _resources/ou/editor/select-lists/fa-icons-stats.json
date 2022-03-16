@@ -1,0 +1,9 @@
+{
+	"lineTemplate": "<span class=\"fa fa-{{value}}\"></span> {{text}}",
+	"options": [
+		":No Icon:{{text}}",
+		"award",
+		"users",
+		"hand-holding-usd"
+	]
+}

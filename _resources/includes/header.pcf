@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/_widgets/header.xsl" title="Homepage Header" extension="inc"?>
+<!-- <?pcf-stylesheet path="/_resources/xsl/_widgets/header.xsl" title="Mobile" alternate="no" publish="yes" extension=".mobile.html"?> -->
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd">
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<ouc:properties label="config">
+		<parameter section="Logo Configuration" name="logo-link" type="filechooser" dependency="dm-tag" group="Everyone" prompt="Logo Link" alt="Please choose the page for the logo to link to in the header.">/index.html</parameter>
+	</ouc:properties>
+
+
+	<ouc:div label="main-navigation" group="Everyone" button-text="Edit Main Navigation" break="true" data-table-separator-options="disable"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/><ul>
+		<li><a href="#">Admissions</a></li>
+		<li><a href="#">Academics</a></li>
+		<li><a href="#">Alumni</a></li>
+		<li><a href="#">Athletics</a></li>
+		<li><a href="#">A to Z</a></li>
+		<li><a href="#">Programs</a></li>
+		</ul></ouc:div>
+
+	<ouc:div label="audience-navigation" group="Everyone" button-text="Edit Audience Navigation" break="true" data-table-separator-options="disable"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/><ul>
+		<li><a href="">Interior Page</a></li>
+		<li><a href="">Landing Page</a></li>
+		<li><a href="">LDP Demo</a></li>
+		<li><a href="">Snippets Page</a></li>
+		</ul></ouc:div>
+
+	<ouc:div label="utility-navigation" group="Everyone" button-text="Edit Utility Navigation" break="true" data-table-separator-options="disable"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/><ul>
+		<li><a href="/index.html">Home Page</a></li>
+		<li><a href="/_showcase/interior-2-col.html">Interior</a></li>
+		<li><a href="/_showcase/interior-full-width.html">Interior Full-Width</a></li>
+		<li><a href="/_showcase/news/index.html">News Room</a></li>
+		<li><a href="/_showcase/news/2020/news-article-1.html">News Article</a></li>
+		<li><a href="/_showcase/news/news-listing.html">News List</a></li>
+		<li><a href="/_showcase/events/index.html">Events List</a></li>
+		<li><a href="/_showcase/events/event-1.html">Events Detail</a></li>
+		<li><a href="/_showcase/faculty/index.html">Faculty Directory</a></li>
+		<li><a href="/_showcase/faculty/jennifer-yee.html">Faculty Profile</a></li>
+		</ul></ouc:div>
+
+</document>

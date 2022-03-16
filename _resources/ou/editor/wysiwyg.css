@@ -1,0 +1,138 @@
+.ou-justedit-region {
+	/*background-color: #FFFFFF !important;*/
+	/*color: #000000 !important;*/
+	padding: 15px;
+	width: 98%;
+}
+/* Fix issue with bootstrap buttons in WYSIWYG */
+.ou-justedit-region .btn{
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+.ou-justedit-region table { width: 100%; table-layout: fixed; }
+.ou-justedit-region table[class^="ou-"]{ width: 100%; cursor: default; margin: 32px 0 !important; }
+
+.ou-justedit-region table[class^="ou-"] td { position: relative !important; }
+
+.ou-justedit-region table[class^="ou-"] img:not(.mce-object-iframe) { 
+	max-width: 100%; 
+	max-height: 100%; 
+	width: auto; 
+	height: auto; 
+}
+
+.ou-justedit-region table[class^="ou-"], 
+.ou-justedit-region .mce-item-table, 
+.ou-justedit-region .mce-item-table td, 
+.ou-justedit-region .mce-item-table th, 
+.ou-justedit-region .mce-item-table caption {
+	border-collapse: separate;
+    border-spacing: 0px;
+	border: 1px solid #d2d2d2;
+	box-sizing: border-box;
+}
+
+.ou-justedit-region table[class^="ou-"] thead tr th, 
+.ou-justedit-region table[class^="ou-"] tbody tr th, 
+.ou-justedit-regiontable[class^="ou-"] caption, 
+.ou-justedit-region table[class^="ou-"] thead tr td { font-weight: 800; }
+
+.ou-justedit-region table[class^="ou-"] thead tr th, 
+.ou-justedit-region table[class^="ou-"] tbody tr th, 
+.ou-justedit-region table[class^="ou-"] caption, 
+.ou-justedit-region table[class^="ou-"] thead tr td, 
+.ou-justedit-region table[class^="ou-"] tbody tr td{
+	color: #000;
+	font-size: 14px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+	padding-right: 5px;
+	vertical-align: top;
+}
+
+.ou-justedit-region table[class^="ou-"] thead tr th, 
+.ou-justedit-region table[class^="ou-"] tbody tr th, 
+.ou-justedit-region table[class^="ou-"] caption {
+    background: none repeat scroll 0 0 #f0f0f0;
+	color: #333;
+	font-weight: 600;
+    font-size: 14px;
+}
+
+.ou-justedit-region table[class^="ou-"] caption {
+	font-size: 18px;
+	text-align: center;
+	background-image: linear-gradient(to bottom,#f9f9f9,#d3d3d3);
+	margin: 0px;
+    border-bottom: 0;
+    caption-side: top;
+}
+
+.ou-justedit-region table.ou-[data-gallery-type="slick"] tr[data-gallery-type="fancybox"],
+.ou-justedit-region table.ou-[data-gallery-type="fancybox"] tr[data-gallery-type="slick"] {
+	display: none;
+}
+
+.ou-justedit-region table[data-snippet='ou-banner-video'] > tbody > tr > td[data-name="video"] > img:not(.mce-object-iframe) { min-width: 100px; min-height: 100px; }
+
+
+/********************************
+ * START Table Input Hint Styling
+ ********************************/
+
+/* Generic table "tool-tip/alert" info styling */
+.ou-justedit-region table[class^="ou-"] th:before,
+.ou-justedit-region table[class^="ou-"] td:before,
+.ou-justedit-region table[class^="ou-"] caption:before,
+.ou-justedit-region table[class^="ou-"]:before {
+	display: block;
+	padding: 5px 15px;
+	margin-bottom: 10px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+
+/********************************
+ * END Table Input Hint Styling
+ ********************************/
+
+/* example of helper text */
+.ou-justedit-region table.ou-table-class > tbody > tr > td:nth-child(1):before { content: 'Add your content and style via WYSIWYG editor toolbar'; }
+
+/* default helper text for different content type */
+table[data-snippet^='ou-'] thead th { text-align: center }
+table[data-snippet^='ou-'] > tbody > tr > td::before { content: "Enter text. All styling will be stripped." }
+table[data-snippet^='ou-'] td[data-type='wysiwyg']::before { content: "Enter content freely using the WYSIWYG toolbar." }
+table[data-snippet^='ou-'] td[data-type='feature-heading']::before { content: "Enter feature heading text." }
+table[data-snippet^='ou-'] td[data-type='item-heading']::before { content: "Enter item heading text." }
+table[data-snippet^='ou-'] td[data-type='text-link']::before { content: "Enter text. Optionally, make it a link." }
+table[data-snippet^='ou-'] td[data-type='link']::before { content: "Insert a link using the WYSIWYG toolbar. The system only reads the first link inside this cell." }
+table[data-snippet^='ou-'] td[data-type='links']::before { content: "Insert multiple links using the WYSIWYG toolbar. The system only reads links inside this cell." }
+table[data-snippet^='ou-'] td[data-type='list']::before { content: "Insert multiple links using the WYSIWYG toolbar. The system only reads links inside this cell." }
+table[data-snippet^='ou-'] td[data-type='image-link']::before { content: "Insert an image using the WYSIWYG toolbar. Optionally, make it a link. The system only reads the first image inside this cell." }
+table[data-snippet^='ou-'] td[data-type='image']::before { content: "Insert an image using the WYSIWYG toolbar. The system only reads the first image inside this cell." }
+table[data-snippet^='ou-'] td[data-type='images']::before { content: "Insert multiple images using the WYSIWYG toolbar. The system only reads images inside this cell." }
+table[data-snippet^='ou-'] td[data-type='number']::before { content: "Enter a number. This field must be a number." }
+table[data-snippet^='ou-'] td[data-type='list']::before { content: "Enter a list using the WYSIWYG. The system only reads list items inside this cell." }
+table[data-snippet^='ou-'] td[data-type='snippet']::before { content: "Insert a specific snippet. Please refer to the documentation to see which snippets are supported." }
+table[data-snippet^='ou-'] td[data-type='snippets']::before { content: "Insert one or more snippets. Please refer to the documentation to see which snippets are supported." }
+table[data-snippet^='ou-'] td[data-type='iframe']::before { content: "Insert a video using the WYSIWYG. The system only reads the first video inside this cell." }
+table[data-snippet^='ou-'] td[data-type='asset']::before { content: "Insert an asset. This cell only reads the first asset." }
+table[data-snippet^='ou-'] td[data-type='asset'][data-asset='gallery']::before { content: "Insert a gallery asset. This cell only reads the first gallery asset." }
+table[data-snippet^='ou-'] td[data-select-list]::before { content: "This is a multiple-choice cell. Click on the cell to view your list of options." }
+table[data-snippet^='ou-'] td[data-type='element'][data-elements='table']::before { content: "Insert a table using the WYSIWYG toolbar. This cell only supports 1 table."; }
+table[data-snippet^='ou-'] td[data-name='feed-parser-config']::before { content: "Please link to a simplified feed parsing configuration file." }
+
+
+table[data-snippet^='ou-'] { counter-reset: items }
+table[data-snippet^='ou-'] > tbody > tr[data-name="item"] { counter-increment: items }
+table[data-snippet='ou-accordion'] > tbody > tr[data-name="item"] > td[data-name="heading"]::before { content: 'Panel ' counter(items) ' — All styling is stripped.' }
+table[data-snippet='ou-tabs'] > tbody > tr[data-name="item"] > td[data-name="heading"]::before { content: 'Tab ' counter(items) ' — All styling is stripped.' }
+table[data-snippet^='ou-'] td[data-type='component']::before { content: "Insert a component using the WYSIWYG toolbar." }

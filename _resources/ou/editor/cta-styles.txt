@@ -1,0 +1,10 @@
+.btn btn-primary btn-sm	Primary Button
+.btn btn-secondary btn-sm	Secondary Button
+.btn btn-success btn-sm	Success Button
+.btn btn-danger btn-sm	Danger Button
+.btn btn-warning btn-sm	Warning Button
+.btn btn-light btn-sm	Light Button
+.btn btn-dark btn-sm	Dark Button
+.btn btn-link btn-sm	Link Button
+
+

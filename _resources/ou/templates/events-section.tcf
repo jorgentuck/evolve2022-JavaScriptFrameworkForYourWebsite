@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcf>
+	<title>News Events Section</title>
+
+	<variable-list>
+		<!-- dirname and friendly name -->
+		<include>_sectionvars.inc</include>
+		<!-- general page setup -->
+		<include>_commonvars.inc</include>
+		<variable name="tcfname" type="text" display="none">events-section.tcf</variable>
+	</variable-list>
+
+	<!-- Use this to specify a template group for the new section. -->
+	<directory-list>
+		<parent name="current_folder" path=".">
+			<directory name="new-folder" template-group="*inherit*">{dirname}</directory>
+		</parent>
+	</directory-list>
+
+	<template-list>
+		<template
+			prompt-prefix="Index Page"
+			filename="index" 
+			display-filename="no" 
+			extension="pcf" 
+			destination="{new-folder}" 
+			force-destination="yes" 
+			preferred-redirect="yes" 
+			tags="{tags}"
+			autonav="{autonavigation}">events-listing.tmpl</template>
+
+		<!-- props and navigation files -->
+		<include>_sectiontemplates.inc</include>
+	</template-list>
+
+	<navigation-list>
+		<!-- navigation options and link style -->
+		<include>_navigationlist.inc</include>
+	</navigation-list>
+</tcf>

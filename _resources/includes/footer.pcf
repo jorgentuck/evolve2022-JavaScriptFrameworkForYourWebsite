@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/_widgets/footer.xsl" title="PHP" extension="php"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd">
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<ouc:properties label="config">
+		<parameter section="Logo Configuration" name="logo-img" type="filechooser" dependency="dm-tag" group="Everyone" prompt="Logo Image" alt="Please choose the image for the logo in the header.">/_resources/images/logo.png</parameter>
+		<parameter name="logo-description" type="text" group="Everyone" prompt="Logo Description" alt="Please enter the alternative text for the logo. This becomes the alt attribute of the image.">Gallena University</parameter>
+		<parameter section="Contact" name="name" type="text" group="Everyone" prompt="Name" alt="Please enter the text for address name.">Gallena University</parameter>
+		<parameter name="name-link" type="filechooser" dependency="dm-tag" group="Everyone" prompt="Name Link" alt="Please choose the page the school name will link to in the header.">/index.html</parameter>
+		<parameter name="address-1" type="text" group="Everyone" prompt="Address 1" alt="Please enter the text for address line one.">1320 Flynn Rd #100</parameter>
+		<parameter name="address-2" type="text" group="Everyone" prompt="Address 2" alt="Please enter the text for address line two.">Camarillo, CA 93012 </parameter>
+		<parameter name="address-3" type="text" group="Everyone" prompt="Address 3" alt="Please enter the text for address line three."></parameter>
+		<parameter name="address-link" type="filechooser" dependency="dm-tag" group="Everyone" prompt="Address Link" alt="Please choose the page the address will link to in the header."></parameter>
+		<parameter name="phone" type="text" group="Everyone" prompt="Phone" alt="Please follow phone format 000-000-000">805-484-9400</parameter>
+		<parameter section="Social" name="facebook-link" type="text" group="Everyone" prompt="Facebook URL">https://www.facebook.com/</parameter>
+		<parameter name="twitter-link" type="text" group="Everyone" prompt="Twitter URL">https://twitter.com/</parameter>
+		<parameter name="linkedin-link" type="text" group="Everyone" prompt="LinkedIn URL">https://www.linkedin.com/</parameter>
+		<parameter name="instagram-link" type="text" group="Everyone" prompt="Instagram URL">https://www.instagram.com/</parameter>
+		<parameter section="Copyright" name="copyright-text" type="text" group="Everyone" prompt="Copyright Text" alt="Please enter the text that appears next to the copyright symbol">2020 Gallena University</parameter>
+	</ouc:properties>
+
+	<ouc:div label="list-one" group="Everyone" button-text="Edit List One" break="true"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/><ul>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Employment</a></li>
+		<li><a href="#">Directory</a></li>
+		<li><a href="#">Security</a></li>
+		</ul></ouc:div>
+
+	<ouc:div label="list-two" group="Everyone" button-text="Edit List Two" break="true">
+		<ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/>
+		<ul>
+			<li><a href="#">Library</a></li>
+			<li><a href="#">Bookstore</a></li>
+			<li><a href="#">Transcripts</a></li>
+			<li><a href="#">Gallena University Online</a></li>
+		</ul>
+	</ouc:div>
+
+	<ouc:div label="list-three" group="Everyone" button-text="Edit List Three" break="true">
+		<ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/>
+		<ul>
+			<li><a href="#">Student Portal</a></li>
+			<li><a href="#">Blackboard</a></li>
+			<li><a href="#">myPSC</a></li>
+			<li><a href="#">Faculty &amp; Staff</a></li>
+		</ul>
+	</ouc:div>
+
+	<ouc:div label="list-four" group="Everyone" button-text="Edit List Four" break="true">
+		<ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/>
+		<ul>
+			<li><a href="#">Foundation</a></li>
+			<li><a href="#">News</a></li>
+			<li><a href="#">Parents &amp; Guests</a></li>
+			<li><a href="#">Directions to Campus</a></li>
+		</ul>
+	</ouc:div>
+
+	<ouc:div label="sub-footer" group="Everyone" button-text="Edit Sub-Footer Links" break="true"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="main-content"/><ul>
+		<li><a href="#">Equal Opportunity Policy</a></li>
+		<li><a href="#">Privacy Policy</a></li>
+		<li><a href="#">Title IX Policy</a></li>
+		</ul></ouc:div>
+
+</document>

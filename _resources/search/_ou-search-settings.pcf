@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/search/xsl/config.xsl" title="HTML" extension=".search.html"?>
+<?pcf-stylesheet path="/_resources/search/xsl/config.xsl" title="CSS" extension=".css.html" alternate="yes"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<ouc:properties label="config">
+		<parameter section="Profile Settings" name="pr" type="text" group="Everyone" prompt="Search Profile" alt="Please enter the search profile for this school.">gallena</parameter>
+		<parameter section="Theme Settings" name="ou-search-theme" group="Everyone" type="select" prompt="Theme" alt="Please choose what theme you would like to use for search results.">
+			<option value="default" selected="true">Default</option>
+			<option value="custom" selected="false">Custom</option>
+		</parameter>
+		<parameter name="output-theme-color" group="Everyone" type="checkbox" prompt="Enable Theme Coloring" alt="Please determine if you would like the theme coloring to output. This will make it so CSS style declarations will be output with the &quot;Theme Color&quot;.">
+			<option value="true" selected="false">Output if checked</option>
+		</parameter>
+		<parameter name="theme-color" type="text" group="Everyone" prompt="Theme Color" alt="Please enter valid CSS color option for the theme. This can be a hex value, rgb, rgba, hsl, or hsla. This will only be considered when &quot;Enable Theme Coloring&quot; is checked. This might not work correctly for a heavily &quot;custom&quot; theme."></parameter>
+		<parameter name="loadingImage" type="filechooser" group="Everyone" dependency="yes" prompt="Loading Icon" alt="Please choose a loading gif for OU Search. If left empty,a default loading gif will be used.">//cdn.omniupdate.com/ou-search/v4.0/img/ou-search-loading.gif</parameter>
+
+		<parameter section="Search Settings" name="autoCompleteLength" group="Everyone" type="select" prompt="Autocomplete Length" alt="Please determine the amount of characters the user must type to have the suggestions show on the search result page.">
+			<option value="2" selected="true">2</option>
+			<option value="3" selected="false">3</option>
+			<option value="4" selected="false">4</option>
+			<option value="5" selected="false">5</option>
+			<option value="6" selected="false">6</option>
+			<option value="7" selected="false">7</option>
+		</parameter>
+		<parameter name="enableAdvanced" group="Everyone" type="checkbox" prompt="Advanced" alt="Please choose if you would like the advanced features to be displayed.">
+			<option value="true" selected="true">Display</option>
+		</parameter>
+
+		<parameter name="brandingDisplay" group="Everyone" type="checkbox" prompt="Branding Icon" alt="Please choose if you would like the branding icon to be displayed.">
+			<option value="true" selected="true">Display</option>
+		</parameter>
+		<parameter section="Pagination Settings" name="numberPagination" group="Everyone" type="checkbox" prompt="Number Pagination" alt="Please choose if you would like the number pagination to be displayed. If checked, the Next and Previous Pagination will still be displayed where applicable.">
+			<option value="true" selected="true">Display</option>
+		</parameter>
+		<parameter name="nextText" type="text" group="Everyone" prompt="Next Pagination" alt="Please enter in the Next Pagination text. If left empty, the default value will be `Next`.">Next</parameter>
+		<parameter name="prevText" type="text" group="Everyone" prompt="Previous Pagination" alt="Please enter in the Previous Pagination text. If left empty, the default value will be `Previous`.">Previous</parameter>
+
+
+		<parameter section="Total Results Settings" name="totalResultsOutput" group="Everyone" type="checkbox" prompt="Total Results" alt="Please choose if you would like the total result count to be displayed.">
+			<option value="true" selected="true">Display</option>
+		</parameter>
+		<parameter name="totalResultsText" type="text" group="Everyone" prompt="Total Results Text" alt="Please enter in the total results text. If left empty, the default will be `Total Results:`.">Total Results:</parameter>
+		<parameter name="totalResultsDisplayText" type="text" group="Everyone" prompt="Results Range Before Text" alt="Please enter in the results range before text. If left empty, the default will be `Displaying:`.">Displaying:</parameter>
+		<parameter name="totalResultsRange" type="text" group="Everyone" prompt="Results Range Middle Text" alt="Please enter in the results range middle text. If left empty, the default will be `to`. This is the value between the start and end range.">to</parameter>
+		<parameter name="totalResultsAfter" type="text" group="Everyone" prompt="Results Range After Text" alt="Please enter in the results range after text. This is the text that appears after the range. If left empty, the default will be empty."></parameter>
+		<parameter section="Parametric Settings" name="parametricHeadingText" type="text" group="Everyone" prompt="Parametric Heading" alt="Please enter in the Parametric Heading. If left empty, the default value will be `Refine Search`.">Refine Search</parameter>
+		<parameter name="parametricMobileButton" type="text" group="Everyone" prompt="Parametric Mobile Button" alt="Please enter in the Parametric Mobile Button. This button is for displaying the parametric on mobile view. This button will only be displayed on mobile if there is parametric options found in the results. If left empty, the default value will be `View Parametric`.">View Parametric</parameter>
+		<parameter section="Text Settings" name="bestBetHeadingText" type="text" group="Everyone" prompt="Best Bet Heading" alt="Please enter in the BestBet Heading. If left empty, the default value will be `Featured Results`.">Featured Results</parameter>
+		<parameter name="didYouMeanText" type="text" group="Everyone" prompt="Spell Check" alt="Please enter in the Spell Check Heading. If left empty, the default value will be `Did you mean:`.">Did you mean:</parameter>
+		<parameter name="errorMessage" type="text" group="Everyone" prompt="No Result Found" alt="Please enter in the results found message that displays before the query. If left empty, the default will be `Sorry, no results were found for`.">Sorry, no results were found for</parameter>
+		<parameter section="Form Settings" name="formPlaceholder" type="text" group="Everyone" prompt="Form Placeholder" alt="Please enter in the Form Placeholder text. If left empty, the default value will be `Search Site...`.">Search Site...</parameter>
+		<parameter name="formSubmitButtonText" type="text" group="Everyone" prompt="Submit Button Text" alt="Please enter in the Form Submit button text. If left empty, the default value will be `Submit`.">Submit</parameter>
+		<parameter name="filteringByText" type="text" group="Everyone" prompt="Filtering By Text" alt="Please enter in the filtering by text. This is used when filtering by a specific directory. If left empty, the default value will be `Filtering by:`.">Filtering by:</parameter>
+		<parameter name="filteringByButton" type="text" group="Everyone" prompt="Filtering By Button" alt="Please enter in the filtering by button. This is used when filtering by a specific directory and this is the button text to remove the filter. If left empty, the default value will be `Remove`.">Remove</parameter>
+		<parameter name="directoryFilter" type="text" group="Everyone" section="Advanced Settings" prompt="Directory Filter" alt="Please enter in the filtering directory, this will be sticky to the page, user will not have the ability to remove this filter. An example which would return results only from the /blog/ folder is: https://omniupdate.com/blog/*"></parameter>
+	</ouc:properties>
+
+	<!-- custom css, inline or external files! -->
+	<css-references></css-references>
+</document>

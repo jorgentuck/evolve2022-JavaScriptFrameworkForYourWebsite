@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/_widgets/cookie-alert.xsl" title="Alert" extension="php"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<headcode></headcode> <!-- before closing head tag -->
+	<bodycode></bodycode> <!-- after opening body tag -->
+	<footcode></footcode> <!-- before closing body tag -->
+
+	<ouc:properties label="config">
+		<parameter name="show-alert" type="select" group="Editors" prompt="Display Alert?" alt="Select 'Yes' and publish to view Alert on homepage.">
+<option value="true" selected="true">Yes</option>
+<option value="false" selected="false">No</option>
+</parameter>
+	</ouc:properties> 
+
+
+	<ouc:properties label="content">
+		<parameter section="Content" name="content" type="text" group="Everyone" prompt="Content">By using this site, you agree to our privacy. </parameter>
+		<parameter name="policy-link-text" type="text" group="Everyone" prompt="Link Text">Read our privacy policy.</parameter>
+		<parameter name="policy-link" type="filechooser" dependency="dm-tag" group="Everyone" prompt="Link" alt="Please choose the page for the link to direct to.">https://quickstart-layout3.oudemo.com/a-to-z.html</parameter>
+		<parameter name="button-text" type="text" group="Everyone" prompt="Link Text" alt="Enter the text for the button.">Accept</parameter>
+	</ouc:properties> 
+
+</document>

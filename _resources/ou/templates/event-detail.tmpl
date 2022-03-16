@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/event-detail.xsl" title="HTML" extension="html"?>
+<?pcf-stylesheet path="/_resources/xsl/_dmc/_core/single-item-xml.xsl" title="XML" extension="xml" alternate="yes" ?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<headcode></headcode> <!-- before closing head tag -->
+	<bodycode></bodycode> <!-- after opening body tag -->
+	<footcode></footcode> <!-- before closing body tag -->
+	<ouc:info><tcf><!--%echo var="tcfname" --></tcf><tmpl>news-item.tmpl</tmpl></ouc:info>
+
+	<ouc:properties label="metadata">
+		<title><!--%echo var="title" --></title>
+		<meta name="Description" content="<!--%echo var='description' -->" />
+		<meta name="Keywords" content="<!--%echo var='keywords' -->" />
+	</ouc:properties>
+
+	<ouc:properties label="config">
+		<parameter group="Everyone" type="text" name="heading" prompt="Page Heading" alt="Please enter the page heading."><!--%echo var="title" --></parameter>
+		<parameter group="Everyone" type="text" name="breadcrumb" prompt="Breadcrumb" alt="Please enter the breadcrumb text. This is not used on index pages."><!--%echo var="title" --></parameter>
+	</ouc:properties>
+
+
+
+	<ouc:properties label="meta-tags">
+		<parameter section="Social Meta Tags" name="override-og-type" type="text" group="Everyone" prompt="Og Type" alt="Please enter the open graph type."></parameter>
+		<parameter name="override-og-image" type="filechooser" group="Everyone" prompt="Og Image" alt="Please choose the open graph image." dependency="yes"></parameter>
+		<parameter name="override-og-image-alt" type="text" group="Everyone" prompt="Og Image Alt" alt="Please enter the open graph image alt text."></parameter>
+		<parameter name="override-og-description" type="textarea" group="Everyone" prompt="Og Description" alt="Please enter the open graph description." rows="7"></parameter>
+		<parameter name="override-twitter-card-description" type="text" group="Everyone" prompt="Twitter Card Description" alt="Please enter the twitter card description. This description will trimmed at 200 characters per Twitter Documentation. This image size needs to be below 5MB in size per Twitter Documentation."></parameter>
+		<parameter name="override-twitter-card-image" type="filechooser" group="Everyone" prompt="Twitter Card Image" alt="Please choose the twitter card image. " dependency="yes"></parameter>
+		<parameter name="override-twitter-card-image-alt" type="text" group="Everyone" prompt="Twitter Card Image Alt" alt="Please enter the twitter card image alt text. This alt text will be trimmed at a length of 420 characters per Twitter Documentation."></parameter>
+		<parameter name="override-twitter-card-type" type="select" group="Everyone" prompt="Twitter Card Type" alt="Please choose the twitter card type.">
+			<option value="summary" selected="false"></option>
+			<option value="summary_large_image" selected="true"></option>
+		</parameter>
+	</ouc:properties>
+
+	<parameter name="dsn">events</parameter>
+
+	<item>
+		<ouc:div label="title" group="Everyone" button="hide"><ouc:multiedit type="text" prompt="Title" alt="Enter title to be displayed on this page and on the listing page." section="General Information"/><!--%echo var="title" --></ouc:div>
+		<ouc:div label="item_date" group="Everyone" button="hide"><ouc:multiedit type="datetime" prompt="Date" alt="Enter date to be displayed on this page and on the listing page."/>08/31/2020 05:00:33 PM</ouc:div>
+		<ouc:div label="location" group="Everyone" button="hide"><ouc:multiedit type="text" prompt="Location" alt="Enter the location to be displayed on this page and on the listing page."/></ouc:div>
+		<ouc:div label="image" group="Everyone" button="hide"><ouc:multiedit type="image" prompt="Image" alt="Select image to be displayed on this page." lockout="yes"/></ouc:div>
+		<ouc:div label="image_caption" group="Everyone" button="hide"><ouc:multiedit type="text" prompt="Image Caption" alt="Enter caption to be displayed underneath image."/>Image caption | Leo sapien convallis odio, eget pellentesque ex erat vitae quam.</ouc:div>
+		<ouc:div label="thumbnail" group="Everyone" button="hide"><ouc:multiedit type="image" prompt="Image Thumbnail" alt="Select image thumbnail to be displayed in the listing page" lockout="yes"/></ouc:div>
+		<ouc:div label="summary" group="Everyone" button="hide"><ouc:multiedit type="textarea" prompt="Summary" alt="Enter summary, this will show up on the listing page" rows="8"/></ouc:div>	
+	</item>
+
+
+	<ouc:div label="maincontent" group="Everyone" button-text="Main Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="maincontent"/><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate sapien sed dictum. Praesent quis pharetra risus. In libero ligula, fermentum sit amet tellus vitae, finibus congue velit. Vestibulum molestie, ante sed ultrices tincidunt, urna nunc scelerisque velit, at lobortis velit elit sit amet lectus. In in orci dictum ligula maximus aliquam. Duis turpis magna, pulvinar et mauris et, aliquam hendrerit elit. Quisque nibh felis, malesuada at ligula ut, lacinia tristique sapien.</p>
+<p>&nbsp;</p></ouc:div>
+	<ouc:div label="socialcontent" group="Everyone" button-text="Social Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="maincontent"/>
+		<p>Share code goes here...</p>
+	</ouc:div>
+
+
+</document>

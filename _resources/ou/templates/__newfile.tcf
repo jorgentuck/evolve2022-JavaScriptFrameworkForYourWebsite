@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcf>
+	<title>New File</title>
+	<template-list>
+		<template prompt-prefix="New File" extension="inc" publish="no" exclude-sitemap="yes" exclude-search="yes">__newfile.tmpl</template>
+	</template-list>
+</tcf>

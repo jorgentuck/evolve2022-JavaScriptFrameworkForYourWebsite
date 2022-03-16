@@ -1,0 +1,210 @@
+/*
+Implementation Skeleton v3 - 12/6/18
+Add styles to overwrite customer CSS, USE WITH CAUTION.
+*/
+
+/* A-Z Index */
+ul.horizontal-list {
+	padding-top: 20px;
+}
+ul.horizontal-list li {
+	display: inline;
+	padding: 10px;
+	list-style-type: none;
+	margin-left: 0.5rem;
+}
+ul.horizontal-list li a{
+	/* 	color: #4F2984!important; */
+}
+ul.horizontal-list li:before {
+	background-image: none;
+}
+ul.horizontal-list ~ ul li{
+	margin-left: 3.5rem;
+}
+/* END A-Z Index */
+
+.jumbotron.bg-image {
+	background: no-repeat center / 100%;
+}
+
+
+/* Start CSS for Pre-Footer Feature */
+.pre-footer{
+	background-color:#e9ecef;
+	text-align:center;
+}
+.pre-footer-margins{
+	margin:25px;
+	padding:15px;
+}
+/* END CSS for Pre-Footer Feature */
+
+/* START CSS For Landing Page Video */
+header#video {
+	position: relative;
+	background-color: black;
+	height: 75vh;
+	min-height: 25rem;
+	width: 100%;
+	overflow: hidden;
+}
+header#video video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 0;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+header#video.container {
+	position: relative;
+	z-index: 2;
+}
+
+header#video .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 1;
+}	
+/* END CSS For Landing Page Video */
+
+/* Header utility nav and audience nav */
+
+/* Homepage CSS */
+/* LDP Hero Slider */
+.ou-home-slider{
+	max-height:1300px;
+}
+
+.hero-title{
+	text-align:left;
+	position: relative;
+    bottom: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .hero-title {
+    position: relative;
+    bottom: 100px;
+  }
+}
+
+.ou-video-overlay{
+	z-index: 999;
+	color: white;
+}
+
+.ou-padding{
+	padding: 0px 15px 0px 15px;
+}
+
+.ou-padding .card-body{
+	text-align:center;
+}
+
+.ou-space{
+	margin:15px 0px 15px 0px;
+	display: block;
+}
+
+.ou-space-2x{
+	margin:30px 0px 30px 0px;
+	display: block;
+}
+
+
+
+/* A-Z Index */
+ul.horizontal-list {
+	padding-top: 20px;
+}
+ul.horizontal-list li {
+	display: inline;
+	padding: 10px;
+	list-style-type: none;
+	margin-left: 0.5rem;
+}
+ul.horizontal-list li a{
+/* 	color: #4F2984!important; */
+}
+ul.horizontal-list li:before {
+	background-image: none;
+}
+ul.horizontal-list ~ ul li{
+	margin-left: 3.5rem;
+}
+/* END A-Z Index */
+
+
+/* mobile nav */
+@media (max-width: 700px) {
+  .ou-nav{
+    display:none!important;
+  }
+}
+
+@media (min-width: 701px) {
+  .ou-mobile{
+    display:none!important;
+  }
+}
+
+
+@media (min-width: 801px) {
+	.ou-row{
+		display:flex!important;
+	}
+}
+
+
+
+/* Radio and Checklist Input Fix */
+
+input[type=checkbox], input[type=radio] {
+	margin-right: 5px !important;
+}
+
+
+/*Fix Edit Buttons */
+a[data-label='slider'] {
+	position: relative;
+	z-index: 9999;
+}
+
+a[data-label='video'] {
+	position: relative;
+	z-index: 9999;
+}
+
+
+/* videoJS theme */
+
+/* Change all text and icon colors in the player. */
+.vjs-matrix.video-js {
+  color: #00ff00;
+}
+
+/* Change the border of the big play button. */
+.vjs-matrix .vjs-big-play-button {
+  border-color: #00ff00;
+}
+
+/* Change the color of various "bars". */
+.vjs-matrix .vjs-volume-level,
+.vjs-matrix .vjs-play-progress,
+.vjs-matrix .vjs-slider-bar {
+  background: #00ff00;
+}

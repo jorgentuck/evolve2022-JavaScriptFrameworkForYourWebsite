@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/faculty-profile.xsl" title="HTML" extension="html"?>
+<?pcf-stylesheet path="/_resources/xsl/_dmc/_core/single-item-xml.xsl" title="XML" extension="xml" alternate="yes" ?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<headcode></headcode> <!-- before closing head tag -->
+	<bodycode></bodycode> <!-- after opening body tag -->
+	<footcode></footcode> <!-- before closing body tag -->
+	<ouc:info><tcf><!--%echo var="tcfname" --></tcf><tmpl>profile.tmpl</tmpl></ouc:info>
+
+	<ouc:properties label="metadata">
+		<title><!--%echo var="title" --></title>
+		<meta name="Description" content="<!--%echo var='description' -->" />
+		<meta name="Keywords" content="<!--%echo var='keywords' -->" />
+	</ouc:properties>
+
+	<ouc:properties label="config">
+		<parameter group="Everyone" type="text" name="heading" prompt="Page Heading" alt="Please enter the page heading."><!--%echo var="title" --></parameter>
+		<parameter group="Everyone" type="text" name="breadcrumb" prompt="Breadcrumb" alt="Please enter the breadcrumb text. This is not used on index pages."><!--%echo var="title" --></parameter>
+	</ouc:properties>
+
+
+
+	<ouc:properties label="meta-tags">
+		<parameter section="Social Meta Tags" name="override-og-type" type="text" group="Everyone" prompt="Og Type" alt="Please enter the open graph type."></parameter>
+		<parameter name="override-og-image" type="filechooser" group="Everyone" prompt="Og Image" alt="Please choose the open graph image." dependency="yes"></parameter>
+		<parameter name="override-og-image-alt" type="text" group="Everyone" prompt="Og Image Alt" alt="Please enter the open graph image alt text."></parameter>
+		<parameter name="override-og-description" type="textarea" group="Everyone" prompt="Og Description" alt="Please enter the open graph description." rows="7"></parameter>
+		<parameter name="override-twitter-card-description" type="text" group="Everyone" prompt="Twitter Card Description" alt="Please enter the twitter card description. This description will trimmed at 200 characters per Twitter Documentation. This image size needs to be below 5MB in size per Twitter Documentation."></parameter>
+		<parameter name="override-twitter-card-image" type="filechooser" group="Everyone" prompt="Twitter Card Image" alt="Please choose the twitter card image. " dependency="yes"></parameter>
+		<parameter name="override-twitter-card-image-alt" type="text" group="Everyone" prompt="Twitter Card Image Alt" alt="Please enter the twitter card image alt text. This alt text will be trimmed at a length of 420 characters per Twitter Documentation."></parameter>
+		<parameter name="override-twitter-card-type" type="select" group="Everyone" prompt="Twitter Card Type" alt="Please choose the twitter card type.">
+			<option value="summary" selected="false"></option>
+			<option value="summary_large_image" selected="true"></option>
+		</parameter>
+	</ouc:properties>
+
+	<parameter name="dsn">faculty</parameter>
+
+	<item>
+		<ouc:div label="first_name" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="First Name" section="General Info"/><!--%echo var="firstname" --></ouc:div>
+		<ouc:div label="last_name" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="Last Name"/><!--%echo var="lastname" --></ouc:div>
+		<ouc:div label="title" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="Title"/></ouc:div>
+		<ouc:div label="department" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="Department"/></ouc:div>
+		<ouc:div label="email" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="Email" alt="e.g. jane.doe@email.com" section="Contact Info"/><!--%echo var="email" --></ouc:div>
+		<ouc:div label="phone" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="Phone" alt="e.g. 000-000-0000 "/></ouc:div>
+		<ouc:div label="fax" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="text" prompt="Fax" alt="e.g. 000-000-0000"/></ouc:div>
+		<ouc:div label="office_hours" group="Everyone" button="hide" id="multiedit"><ouc:multiedit type="textarea" prompt="Office Hours" alt="Enter your office hours." editor="yes" section="Additional Info"/>By Appointment</ouc:div>
+		<ouc:div  label="building" group="Everyone" button="hide" id="multiedit"><ouc:multiedit prompt="Building" type="text"/></ouc:div>
+		<ouc:div label="room_number" group="Everyone" button="hide" id="multiedit"><ouc:multiedit prompt="Room Number" type="text"/></ouc:div>
+		<ouc:div label="image" group="Everyone" button="hide"><ouc:multiedit type="image" prompt="Image" alt="Select your image." path="/images/faculty" lockout="yes"/></ouc:div>
+	</item>
+
+
+	<ouc:div label="maincontent" group="Everyone" button-text="Main Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="maincontent"/><table class="bio table table-striped">
+		<tbody>
+			<tr>
+				<th>Degree</th>
+				<th>Major Emphasis</th>
+				<th>Institution</th>
+				<th>Year</th>
+			</tr>
+			<tr>
+				<td>Ph.D.</td>
+				<td>Mass Communications</td>
+				<td>University</td>
+				<td>2001</td>
+			</tr>
+			<tr>
+				<td>M.A.</td>
+				<td>Communication</td>
+				<td>University</td>
+				<td>1986</td>
+			</tr>
+			<tr>
+				<td>B.A.</td>
+				<td>Journalism</td>
+				<td>University</td>
+				<td>1972</td>
+			</tr>
+		</tbody>
+		</table>
+		<p>&nbsp;</p>
+		<table class="ou-" data-snippet="ou-tabs"><caption class="mceNonEditable">Tabs</caption>
+			<tbody>
+				<tr>
+					<th class="mceNonEditable" style="width: 35%;">Tab Shown on Load</th>
+					<td data-name="tab-shown" data-type="number">1</td>
+				</tr>
+				<tr>
+					<th class="mceNonEditable">Heading</th>
+					<th class="mceNonEditable">Content</th>
+				</tr>
+				<tr data-name="item">
+					<td data-name="heading" data-type="text">About</td>
+					<td data-name="content" data-type="wysiwyg">
+						<p>Tab 1 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.</p>
+						<p>Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit.</p>
+						<p>Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.</p>
+					</td>
+				</tr>
+				<tr data-name="item">
+					<td data-name="heading" data-type="text">Teaching Interests</td>
+					<td data-name="content" data-type="wysiwyg">
+						<p>Tab 2 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.</p>
+						<p>Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit.</p>
+						<p>Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.</p>
+					</td>
+				</tr>
+				<tr data-name="item">
+					<td data-name="heading" data-type="text">Research Interests</td>
+					<td data-name="content" data-type="wysiwyg">
+						<p>Tab 3 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.</p>
+						<p>Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit.</p>
+						<p>Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.</p>
+					</td>
+				</tr>
+				<tr data-name="item">
+					<td data-name="heading" data-type="text">Section 4</td>
+					<td data-name="content" data-type="wysiwyg">
+						<p>Tab 4 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.</p>
+						<p>Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit.</p>
+						<p>Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table></ouc:div>
+	<ouc:div label="socialcontent" group="Everyone" button-text="Social Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="maincontent"/></ouc:div>
+
+</document>

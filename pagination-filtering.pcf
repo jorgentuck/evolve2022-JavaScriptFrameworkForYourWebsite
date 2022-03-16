@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/xsl/interior.xsl" title="HTML" extension="html"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<headcode></headcode> <!-- before closing head tag -->
+	<bodycode></bodycode> <!-- after opening body tag -->
+	<footcode><script src="/_resources/js/evolve/pagination-filtering.js" ></script></footcode> <!-- before closing body tag -->
+	<ouc:info><tcf>interior.tcf</tcf><tmpl>interior.tmpl</tmpl></ouc:info>
+
+	<ouc:properties label="metadata">
+		<title>Pagination - Filtering</title>
+		<meta name="Description" content="" />
+		<meta name="Keywords" content="" />
+	</ouc:properties>
+
+	<ouc:properties label="config">
+		<!-- 		<parameter group="Everyone" type="filechooser" name="banner-src" dependency="yes" section="Page Options" prompt="Banner Background Image" alt="Choose an image to use for the banner.">https://via.placeholder.com/1800x200</parameter>
+<parameter group="Everyone" type="text" name="banner-text" prompt="Banner Text" alt="Write a text for the banner.">Interior 2 Column</parameter> -->
+		<parameter group="Everyone" type="text" name="heading" prompt="Page Heading" alt="Please enter the page heading.">Pagination - Filtering</parameter>
+		<parameter group="Everyone" type="text" name="breadcrumb" prompt="Breadcrumb" alt="Please enter the breadcrumb text. This is not used on index pages.">Pagination - Filtering</parameter>
+		<parameter group="Everyone" type="text" name="side-heading" prompt="Side Nav Heading" alt="Please enter the side navigation heading.">Pagination - Filtering</parameter>
+	</ouc:properties>
+
+	<ouc:properties label="layout">
+		<parameter group="Everyone" type="select" name="banner-content" section="Page Options" prompt="Banner Content" alt="Select banner type.">
+<option value="slider" selected="false">Slider</option>
+<option value="video" selected="false">Video</option>
+<option value="none" selected="true">None</option>
+</parameter>
+		<parameter name="show-heading"  type="checkbox" group="Everyone" prompt="Page Heading" alt="">
+<option value="yes" selected="false">Show</option>
+</parameter>
+		<parameter group="Everyone" type="checkbox" name="sidebar" prompt="Sidebar Elements" alt="Turn on/off sidebar elements to customize the layout. When all elements are turned off, the page will have a 1-column layout.">
+<option value="side-navigation" selected="false">Side Navigation</option>
+<option value="side-content" selected="false">Content Below Navigation</option>
+</parameter>
+	</ouc:properties>
+
+	<ouc:properties label="meta-tags">
+		<parameter section="Social Meta Tags" name="override-og-type" type="text" group="Everyone" prompt="Og Type" alt="Please enter the open graph type.">OG Type</parameter>
+		<parameter name="override-og-image" type="filechooser" group="Everyone" prompt="Og Image" alt="Please choose the open graph image." dependency="yes">https://i.picsum.photos/id/580/200/300.jpg</parameter>
+		<parameter name="override-og-image-alt" type="text" group="Everyone" prompt="Og Image Alt" alt="Please enter the open graph image alt text.">Alt Override Text</parameter>
+		<parameter name="override-og-description" type="textarea" group="Everyone" prompt="Og Description" alt="Please enter the open graph description." rows="7">This is the open graph description override.</parameter>
+		<parameter name="override-twitter-card-description" type="text" group="Everyone" prompt="Twitter Card Description" alt="Please enter the twitter card description. This description will trimmed at 200 characters per Twitter Documentation. This image size needs to be below 5MB in size per Twitter Documentation.">This is the open graph twitter card description</parameter>
+		<parameter name="override-twitter-card-image" type="filechooser" group="Everyone" prompt="Twitter Card Image" alt="Please choose the twitter card image. " dependency="yes">https://i.picsum.photos/id/580/200/300.jpg</parameter>
+		<parameter name="override-twitter-card-image-alt" type="text" group="Everyone" prompt="Twitter Card Image Alt" alt="Please enter the twitter card image alt text. This alt text will be trimmed at a length of 420 characters per Twitter Documentation.">Twitter Alt Override Text</parameter>
+		<parameter name="override-twitter-card-type" type="select" group="Everyone" prompt="Twitter Card Type" alt="Please choose the twitter card type.">
+<option value="summary" selected="false">Summary</option>
+<option value="summary_large_image" selected="true">Summary Large Image</option>
+</parameter>
+	</ouc:properties>
+	
+	<ouc:div label="slider" group="Everyone" button-text="Insert Slider" break="yes"><ouc:editor wysiwyg="gallery" csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" parag="no" wysiwyg-class="main-content"/></ouc:div>	
+
+	<ouc:div label="video" group="Everyone" button-text="Edit Video" break="yes"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" parag="no" wysiwyg-class="main-content"/>
+		<table class="ou-" data-snippet="ou-banner-video"><caption class="mceNonEditable">Video</caption>
+			<thead>
+				<tr>
+					<th class="mceNonEditable">Video MP4 Link</th>
+					<th class="mceNonEditable">Video Still</th>
+					<th class="mceNonEditable">Overlay Title</th>
+					<th class="mceNonEditable">Overlay Subtitle</th>
+					<th class="mceNonEditable">Call to Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-name="data">
+					<td data-name="video" data-type="link"><video width="300" height="150" controls="controls">
+						<source src="/_resources/images/video.mov" /></video></td>
+					<td data-name="image" data-type="image"><img class="" src="/_resources/images/video-still.png" alt="Graduation" width="1823" height="927" /></td>
+					<td data-name="title" data-type="text">Title</td>
+					<td data-name="subtitle" data-type="text">Subtitle</td>
+					<td data-name="cta" data-type="link"><a href="#">CTA</a></td>
+				</tr>
+			</tbody>
+		</table></ouc:div>
+
+
+
+
+	<ouc:div label="maincontent" group="Everyone" button-text="Main Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="maincontent"/><div id="listingFilter"></div>
+            
+	<div id="listingDiv" data-perPage="6" data-feed="https://workshop411.outc20.com/_resources/data/news.json"></div>
+	
+	<div id="pager" class="container-fluid text-center mb-5"></div> 
+
+<p>&nbsp;</p></ouc:div>
+
+	<ouc:div label="subcontent" group="Everyone" button-text="Sub-Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="full-width"/></ouc:div>
+
+
+	<ouc:div label="full-width-content" group="Everyone" button-text="Full-width Content"><ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="full-width"/></ouc:div>
+
+
+
+
+
+
+
+	<ouc:div label="side-content" group="Everyone" button-text="Side Content">
+		<ouc:editor csspath="/_resources/ou/editor/wysiwyg.css" cssmenu="/_resources/ou/editor/styles.txt" wysiwyg-class="additional-content"/>
+
+	</ouc:div>
+
+</document>

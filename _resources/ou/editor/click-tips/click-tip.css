@@ -1,0 +1,55 @@
+.ou-click-tip-modal {
+	display: none; 
+	position: fixed; 
+	z-index: 1; 
+	padding-top: 100px; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.7); 
+	z-index: 1234567890;
+}
+
+.ou-click-tip-modal-content { background-color: #fefefe; margin: auto; width: 80%; }
+.ou-click-tip-modal-content *:last-child { margin-bottom: 0; }
+
+.ou-click-tip-modal-close { color: #FFF; float: right; font-size: 14px; font-weight: bold; border: 1px solid #FFF; padding: 5px; margin-top: -29px; background-color: #178FD0;}
+.ou-click-tip-modal-close:hover, .ou-click-tip-modal-close:focus { color: #FFF; background-color: rgba(0,0,0,0.3); text-decoration: none; cursor: pointer; }
+
+.ou-click-tip-modal-header { padding: 2px 16px; background-color: #178FD0; color: white; padding: 16px; }
+.ou-click-tip-modal-heading { font-size: 20px; margin: 0 }
+
+.ou-click-tip-modal-body {padding: 15px;}
+.ou-click-tip-modal-body p { margin-top: 0; }
+
+.ou-click-tip-modal-open:hover + * { background-color: rgba(0,0,0,.8); }
+.ou-click-tip-modal-open:hover { cursor: pointer; }
+
+.ou-click-tip-modal-open {
+	position: absolute;
+	-webkit-appearance: button;
+	margin: 0;
+	font-family: "Arial";
+	line-height: 20px;
+	box-sizing: border-box;
+	width: auto;
+	height: 36px;
+	font-size: 24px;
+	z-index: 123456789;
+	border-width: 1px;
+	border-radius: 5px;
+}
+
+.ou-click-tip-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}

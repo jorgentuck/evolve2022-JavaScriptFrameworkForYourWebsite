@@ -1,0 +1,258 @@
+<div id="ou-search-results">
+	<div class="ou-search-container">
+		<h2>Search Results <span v-if="query">{{"for: \"" + displayQuery + "\""}}</span></h2>
+		<form id="ou-search-form" class="ou-search-form" method="get" autocomplete="off">
+			<span id="ou-search-autocomplete-text" class="ou-search-accessible">Use arrow keys to access and browse suggestions after input. Confirm your choice with enter key, or esc key to close suggestions box.</span>
+			<label for="ousearchq" class="ou-search-accessible">Search Site</label>
+			<input @keyup="autoCompleteSearchKeyUp"
+				   @keydown="autoCompleteSearchKeyDown"
+				   @focus="setActiveAutoCompleteSearch($event, -1)"
+				   id="ousearchq" 
+				   type="text" 
+				   class="ou-search-input" 
+				   :placeholder="formPlaceholder" 
+				   name="ousearchq" 
+				   aria-describedby="ou-search-autocomplete-text" 
+				   aria-autocomplete="list" 
+				   autocomplete="off" 
+				   aria-owns="ou-search-autocomplete-div" 
+				   :aria-activedescendant="(autoCompleteFocus > -1) ? 'ou-search-suggestion-li' : ''" 
+				   aria-autocomplete="both" 
+				   :aria-expanded="(showingAutoComplete) ? 'true' : 'false'"/>
+			<div @mouseout="removeAutoCompleteActive" id="ou-search-autocomplete-div" role="listbox" tabindex="-1">
+				<ul class="ou-search-autocomplete"  v-if="showingAutoComplete && autoCompleteData != null && autoCompleteData.length">
+					<li :id="(autoCompleteFocus == index) ? 'ou-search-suggestion-li' : ''" :aria-selected="(autoCompleteFocus == index) ? 'true' : 'false'" role="option" tabindex="-1" @mouseover="setActiveAutoComplete(index)" :class="(autoCompleteFocus == index) ? 'ou-search-autocomplete-li ou-search-autocomplete-active' : 'ou-search-autocomplete-li'" v-for="(comp, index) in autoCompleteData">
+						<a @focus="setActiveAutoComplete(index)" class="ou-search-autocomplete-li-option" :href="'?ousearchq=' + comp + extraPaginationLinks" v-html="comp"></a>
+					</li>
+				</ul>
+			</div>
+			<div v-if="uq && allowUqRemoval">
+				<label for="uq" class="ou-search-accessible">Directory Filter</label>
+				<input id="uq" type="hidden" :value="uq" name="uq" />
+			</div>
+			<div id="ou-search-advanced" v-if="enableAdvanced">
+				<h3 :class="[(advancedActive == true) ?  'ou-search-advanced-heading ou-search-advanced-open' : 'ou-search-advanced-heading']">
+					<a id="ou-search-open-advanced" class="ou-search-open-advanced" href="#" v-on:click.prevent="showAdvanced">Advanced</a>
+				</h3>
+				<div class="ou-search-advanced" v-show="advancedActive" :aria-expanded="[(advancedActive == true) ?  'true' : 'false']">
+					<div class="ou-search-row">
+						<div class="ou-search-col-md-4">
+							<fieldset>
+								<legend>Search Help</legend>
+								<ul id="ou-search-help-list" class="ou-search-help-list">
+									<li v-for="item in helpUrlItems"><a :href="item.href">{{item.text}}</a></li>
+								</ul>
+							</fieldset>
+						</div>
+						<div class="ou-search-col-md-4">
+							<fieldset>
+								<legend>Proximity</legend>
+								<div class="ou-search-advanced-group">
+									<input v-model="prox" type="radio" name="prox" id="proximity-1" value="line">
+									<label for="proximity-1">Line</label>
+								</div>
+								<div class="ou-search-advanced-group">
+									<input v-model="prox" type="radio" name="prox" id="proximity-2" value="sentence">
+									<label for="proximity-2">Sentence</label>
+								</div>
+								<div class="ou-search-advanced-group">
+									<input v-model="prox" type="radio" name="prox" id="proximity-3" value="paragraph">
+									<label for="proximity-3">Paragraph</label>
+								</div>
+								<div class="ou-search-advanced-group">
+									<input v-model="prox" type="radio" name="prox" id="proximity-4" value="page">
+									<label for="proximity-4">Page</label>
+								</div>
+							</fieldset>
+							<fieldset>
+								<legend>Word Forms</legend>
+								<div class="ou-search-advanced-group">
+									<input v-model="sufs" type="radio" name="sufs" id="sufs-1" value="0">
+									<label for="sufs-1">Exact match</label>
+								</div>
+								<div class="ou-search-advanced-group">
+									<input v-model="sufs" type="radio" name="sufs" id="sufs-2" value="1">									
+									<label for="sufs-2">Plural &amp; possessives</label>
+								</div>
+								<div class="ou-search-advanced-group">
+									<input v-model="sufs" type="radio" name="sufs" id="sufs-3" value="2">
+									<label for="sufs-3">Any word forms</label>
+								</div>
+								<div class="ou-search-advanced-group">
+									<input v-model="sufs" type="radio" name="sufs" id="sufs-4" value="3">
+									<label for="sufs-4">Custom</label>
+								</div>
+							</fieldset>
+						</div>
+						<div class="ou-search-col-md-4">
+							<fieldset>
+								<legend>Ranking Factors</legend>
+								<div class="ou-search-advanced-group">
+									<label for="order">Order By</label>
+									<select class="ou-search-select" name="order" id="order" v-model="order">
+										<option value="r">Relevance</option>
+										<option value="dd">Date</option>
+										<option value="url">Url</option>
+									</select>
+								</div>
+								<div class="ou-search-advanced-group">
+									<label for="rorder">Word Ordering</label>
+									<select class="ou-search-select" name="rorder" id="rorder" v-model="rorder">
+										<option value="0">Off</option>
+										<option value="250">Low</option>
+										<option value="500">Medium</option>
+										<option value="750">High</option>
+										<option value="1000">Max</option>
+									</select>
+								</div>
+								<div class="ou-search-advanced-group">
+									<label for="rprox">Word Proximity</label>
+									<select class="ou-search-select" name="rprox" id="rprox" v-model="rprox">
+										<option value="0">Off</option>
+										<option value="250">Low</option>
+										<option value="500">Medium</option>
+										<option value="750">High</option>
+										<option value="1000">Max</option>
+									</select>
+								</div>
+								<div class="ou-search-advanced-group">
+									<label for="rdfreq">Database Frequency</label>
+									<select class="ou-search-select" name="rdfreq" id="rdfreq" v-model="rdfreq">
+										<option value="0">Off</option>
+										<option value="250">Low</option>
+										<option value="500">Medium</option>
+										<option value="750">High</option>
+										<option value="1000">Max</option>
+									</select>
+								</div>
+								<div class="ou-search-advanced-group">
+									<label for="rwfreq">Document Frequency</label>
+									<select class="ou-search-select" name="rwfreq" id="rwfreq" v-model="rwfreq">
+										<option value="0">Off</option>
+										<option value="250">Low</option>
+										<option value="500">Medium</option>
+										<option value="750">High</option>
+										<option value="1000">Max</option>
+									</select>
+								</div>
+								<div class="ou-search-advanced-group">
+									<label for="rlead">Position in text</label>
+									<select class="ou-search-select" name="rlead" id="rlead" v-model="rlead">
+										<option value="0">Off</option>
+										<option value="250">Low</option>
+										<option value="500">Medium</option>
+										<option value="750">High</option>
+										<option value="1000">Max</option>
+									</select>
+								</div>
+								<div class="ou-search-advanced-group">
+									<label for="rdepth">Depth in site</label>
+									<select class="ou-search-select" name="rdepth" id="rdepth" v-model="rdepth">
+										<option value="0">Off</option>
+										<option value="31">Low</option>
+										<option value="62">Medium</option>
+										<option value="125">High</option>
+										<option value="250">Max</option>
+									</select>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="ou-search-button ou-search-button-color" id="ou-search-submission">{{formSubmitButtonText}}</button>
+		</form>
+		<button v-if="selectedParametric || parametric" class="ou-search-parametric-toggle ou-search-button-color" title="Expand additional search options used on mobile" @click="viewParametric">{{parametricMobileButton}}</button>
+		<div class="ou-search-row">
+			<div class="ou-search-col-md-3 ou-search-col-md-push-9" v-if="selectedParametric || parametric">
+				<div class="ou-search-parametric-results ou-search-parametric-display" id="ou-search-parametric-results">
+					<h2 class="refine-search">{{parametricHeadingText}}</h2>
+					<ul class="ou-search-list">
+						<li v-for="element in selectedParametric">
+							<h3 class="parametric-heading">{{element.title}}</h3>
+							<ul class="ou-search-parametric-selected-list">
+								<li class="ou-search-parametric-selected-list-item">
+									<input aria-checked="true" :class="searchId + 'selected'" :name="searchId + element.selected" :id="searchId + element.selected" @click="clickOUSearch($event, element.title)" checked="checked" type="checkbox" :value="element.selected" />
+									<label :for="searchId + element.selected">{{element.selected}}</label>
+								</li>
+							</ul>
+						</li>
+						<li v-for="element in parametric">
+							<h3 class="parametric-heading">{{element.title}}</h3>
+							<ul class="ou-search-parametric-list">
+								<li class="ou-search-parametric-list-item" v-for="item in element.groups">
+									<input aria-checked="false" :class="searchId + 'not-selected'" :name="searchId + item.value" :id="searchId + item.value" type="checkbox" :value="item.value" @click="clickOUSearch($event, element.title)" />
+									<label :for="searchId + item.value">{{item.value}}</label>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div :class="[selectedParametric || parametric ? 'ou-search-col-md-9 ou-search-col-md-pull-3' : 'ou-search-col-lg-12']">
+				<img id="ou-search-loading" v-if="itemsNotFound" :src="loadingImage" alt="OU Search Loading"/>
+				<div v-if="uq" class="ou-search-directory">
+					<p>{{filteringByText}} {{uq}} 
+						<button v-if="allowUqRemoval" class="ou-search-button ou-search-button-color" aria-label="Remove Directory Filter" title="Remove Directory Filter" @click="removeFilter">{{filteringByButton}}</button>
+					</p>
+				</div>
+				<div class="ou-search-didyoumean" v-if="spelling && !bestbets">
+					<p>{{didYouMeanText}}
+						<span v-for="word in spelling" class="ou-search-word-correction">
+							<a :href="'?q=' + word.word">{{word.word}}</a>{{ (word.count != '') ? '(' + word.count + ')' : '' }}
+						</span>
+					</p>
+				</div>
+				<div class="ou-bestbets" v-if="bestbets">
+					<h2 class="bestbets-heading">{{bestBetHeadingText}}</h2>
+					<ul class="ou-search-list">
+						<li class="ou-search-list-li" v-for="best in bestbets">
+							<h3 class="ou-search-result-heading"><a :href="best.clickurl" v-html="best.title"></a></h3>
+							<p class="ou-search-abstract" v-html="best.abstract"></p>
+							<p class="ou-search-link"><a :href="best.clickurl + '&amp;link'">{{best.url}}</a></p>
+						</li>
+					</ul>
+				</div>
+				<div class="ou-total-results" v-if="totalResultsOutput && results">
+					<p>
+						<strong>{{totalResultsText}} {{total}}</strong>
+						<span class="ou-search-current-range"><strong>{{totalResultsDisplayText}} {{start}} {{totalResultsRange}} {{end}} {{totalResultsAfterText}}</strong></span>
+					</p>
+					<hr />
+				</div>
+				<div class="ou-search-results-container" v-if="results">
+					<h2 class="ou-search-accessible">Search Results</h2>
+					<ul class="ou-search-results">
+						<li class="ou-search-result-li" v-for="result in results">
+							<h3 class="ou-search-result-heading"><a :href="result.clickurl ? result.clickurl : result.url" v-html="result.title"></a></h3>
+							<p class="ou-search-abstract" v-html="result.abstract"></p>
+							<p class="ou-search-link"><a :href="result.clickurl ? result.clickurl + '&amp;link' : result.url">{{result.url}}</a></p>
+						</li>
+					</ul>
+				</div>
+				<ul class="ou-search-no-results" v-if="noResults">
+					<li><h2>{{errorMessage}} "{{displayQuery}}".</h2></li>
+				</ul>
+				<ul class="ou-search-pagination" aria-label="Page navigation" v-if="pagination">
+					<li class="ou-search-pagination-previous" v-if="prev">
+						<a aria-label="'Go to previous page" :href="currentQueryName + query + '&jump=' + prev + extraPaginationLinks">{{prevText}}</a>
+					</li>
+					<li v-else class="ou-search-pagination-previous ou-search-disabled"><span>{{prevText}}</span></li>
+					<li class="ou-search-pagination-li" v-for="page in pagination" v-if="numberPagination" :class="[page.cur ? 'ou-search-active' : '']">
+						<span aria-label="Current page" v-if="page.cur">{{page.page}}</span>
+						<a v-else :aria-label="'Go to page ' + page.page" :href="currentQueryName + query + '&jump=' + page.jump + extraPaginationLinks">{{page.page}}</a>
+					</li>
+					<li class="ou-search-pagination-next" v-if="next">
+						<a aria-label="'Go to next page" :href="currentQueryName + query + '&jump=' + next + extraPaginationLinks">{{nextText}}</a>
+					</li>
+					<li v-else class="ou-search-pagination-next ou-search-disabled"><span>{{nextText}}</span></li>
+				</ul>
+				<div class="ou-search-branding-display" v-if="brandingDisplay">
+					<a :href="brandingLink" target="_blank" title="OU Search by OmniUpdate" id="ou-search-logo-link">
+						<img :src="brandingIcon" class="ou-search-logo" alt="OU Search"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

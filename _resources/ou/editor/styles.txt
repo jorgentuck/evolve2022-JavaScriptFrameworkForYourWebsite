@@ -1,0 +1,9 @@
+.span-style	Span Style (Inline)
+.block-style	Block Style	block
+.btn btn-default	Blue Button
+.btn btn-default btn-white	White Button
+.blue-text	Blue Text
+.table-hover	Table Hover
+.table-sm	Table Condensed
+.table-striped	Table Striped
+.font-size-xl font-weight-light text-center mt-5 mb-5	Interior Header	inline-block

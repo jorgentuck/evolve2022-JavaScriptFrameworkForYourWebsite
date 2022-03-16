@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tcf>
+	<title>New Faculty Profile Page</title>
+	
+	<variable-list>
+		<!-- general page setup -->
+		<include>_commonvars.inc</include>
+		<variable name="email" prompt="Email" section="General Content"></variable>	
+		<variable name="firstname" prompt="First Name" ></variable>
+		<variable name="lastname" prompt="Last Name" ></variable>
+			
+		<!-- A safer way to create a file, forces PCF file extension -->
+		<variable name="pcf-filename" prompt="Filename" alt="Enter a filename using only lowercase letters, underscores, or dashes">untitled</variable>
+		<variable name="tcfname" type="text" display="none">faculty-profile.tcf</variable>
+	</variable-list>
+	
+	<template-list>
+		<template 
+			prompt-prefix="Profile Page"
+			filename="{pcf-filename}"
+			display-filename="no"
+			extension="pcf"
+			preferred-redirect="yes"
+			tags="{tags}"
+			autonav="{autonavigation}">faculty-profile.tmpl</template>
+	</template-list>
+	
+	<navigation-list>
+		<!-- navigation options and link style -->
+	   <include>_navigationlist.inc</include>
+	</navigation-list>
+</tcf>

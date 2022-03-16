@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="HTML" extension=".ldp-forms.html" ?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="Connector Script" extension=".ldp-forms-connector.php" alternate="yes"?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="Sites JSON" extension=".sites.json" alternate="yes"?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="JavaScript" extension=".ldp-forms.js" alternate="yes" params="server-type=php"?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="CSS Include" extension=".css.html" alternate="yes"?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="CSS" extension=".ldp-forms.css" alternate="yes"?>
+<?pcf-stylesheet path="/_resources/ldp/forms/xsl/config.xsl" title="Captcha Element" extension=".captcha.html" alternate="yes"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+
+	<ouc:properties label="config">
+		<parameter section="Connector Script Configuration" name="full-connector-script" type="filechooser" dependency="yes" group="Everyone" prompt="Connector Script Location" alt="Please fill this out with a path to the connector script. Leave blank for default value. This will ignore all the values below and is good for debugging."></parameter>
+		<parameter name="ssm-host" type="text" group="Everyone" prompt="SSM Host" alt="Please enter the ssm host. Please make sure this filled out.">http://127.0.0.1</parameter>
+		<parameter name="ssm-path" type="text" group="Everyone" prompt="SSM Path" alt="Please enter the ssm path. This is used for PHP sites."></parameter>
+		<parameter name="ssm-port" type="text" group="Everyone" prompt="SSM Port" alt="Please enter the ssm port. This should be 7518. DO NOT Change.">7518</parameter>
+		<parameter name="site-uuids" type="textarea" rows="7" group="Everyone" prompt="Site UUIDS" alt="Please enter the site uuids. The format should be: sitename =&gt; uuid. Mulitple Site UUIDS should seperated by semi colon.">layout4 =&gt; 7a280abe-34c3-4f3c-8fe3-cda3a46321e3</parameter>
+
+		<parameter section="Captcha Configuration (Both must be filled out for the captcha to work correctly)" name="captcha-secret-key" type="text" group="Everyone" prompt="Captcha Secret Key" alt="Please enter the captcha secret code. This is used by the connector script to validate the forms with the captcha on them."></parameter>
+		<parameter name="captcha-site-key" type="text" group="Everyone" prompt="Captcha Site Key" alt="Please enter the captcha site key. This will be used to render the captcha on the web page."></parameter>
+
+		<parameter section="Form Styling Configuration" name="include-regular-styling" type="checkbox" dependency="yes" group="Everyone" prompt="Regular Form Styling" alt="Please check this box to include LDP Form Regular Styling CSS.">
+			<option value="true" selected="true">Add regular styling if checked.</option>
+		</parameter>
+
+		<parameter name="include-validation-styling" type="checkbox" dependency="yes" group="Everyone" prompt="Validation Form Styling" alt="Please check this box to include LDP Form Validation Styling CSS. This is used when errors are returned on form submission">
+			<option value="true" selected="true">Add validation styling if checked.</option>
+		</parameter>
+
+		<parameter section="Form Submission Configuration" name="include-jquery" type="checkbox" dependency="yes" group="Everyone" prompt="Include jQuery" alt="Please check this box to include jQuery. This should be checked if the school doesn't have jQuery.">
+			<option value="true" selected="false">Add jQuery if checked.</option>
+		</parameter>
+
+		<parameter name="ldp-form-js-location" type="filechooser" dependency="yes" group="Everyone" prompt="JS Filepath" alt="Please fill this out with the path to a custom LDP form JavaScript file. Leave blank for default value. Make sure this JavaScript includes the DateTime Picker just like the regular LDP Form JavaScript. This is good for debugging."></parameter>
+		<parameter name="loading-image" type="filechooser" group="Everyone" prompt="Loading Image" dependency="yes" alt="Please choose the loading image for when the form is submitting.">https://cdn.omniupdate.com/ldp-forms/v1/loading.gif</parameter>
+		<parameter name="loading-text" type="text" group="Everyone" prompt="Loading Text" alt="Please enter the text that will be displayed next to the loading image on form submission.">Submitting, Please Wait ...</parameter>
+		<parameter name="full-error-text" type="text" group="Everyone" prompt="Full Error Text" alt="Please enter the text that will be displayed when the form fully fails to submit properly">Error Submitting Form. Please contact Site Adminstrator.</parameter>
+
+	</ouc:properties>
+
+</document>

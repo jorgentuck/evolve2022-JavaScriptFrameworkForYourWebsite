@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@media print {
+.content{
+width: 100%; 
+margin: 0; 
+float: none;
+}
+
+/** Setting margins */       
+@page { margin: 2cm }
+
+/**
+ * Making intergated videos disappear, and removing the iframes' whitespace to zero. 
+ */
+.entry iframe, ins {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    line-height: 0pt !important;
+    white-space: nowrap;
+}
+.embed-youtube, .embed-responsive {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+}
+body:before { 
+    content: url("");
+} 
+body{
+    background-color: #fff;
+}
+/* Hiding unnecessary elements for the print */
+
+.siteHeader, .off-screen-nav, .mobile-header, .slider-wrapper, .dwd-aio.image-zoom-hover, .footer-nav, .copyright, .split-hero, .single-hero, .breadcrumb, .cta-buttons, .gallery-slider-wrapper, .yellow-pre-footer, .video-holder, .tab-carousels, .news-header, .btn-default, .btn, .footer-social, .pagination, .emergency-alert, .cookiealert, #filter, aside, .cta-yellow, img, form, .side-nav-heading, #sidebar .navbar, .social, .custom-slider-arrows, .btn-black, .btn-blue, .btn-yellow, .btn-blue-outline, .btn-yellow-outline, .btn-black-outline, .accordion-style-1, .accordion-style-2, .tabs, .by-the-numbers {
+    display: none !important;
+}
+.section-with-background[style]{
+    background-image: none !important;
+}
+.filter-thumbnails .thumbnail-wrapper{
+    height: 150px;    
+    }
+.filter-thumbnails .thumbnail{
+        height: 140px;
+    }
+.card.white-blue-border-2{
+  border-top: 2px solid #0056b8;   
+  border-bottom: 2px solid #0056b8;  
+    }
+.card.blue, .card.black{
+  background-color: #fff;
+    color: #000;
+    }
+.card.blue h2, .card.blue h3, .card.blue h4, .card.blue h5, .card.blue h6, .card.black h2, .card.black h3, .card.black h4, .card.black h5, .card.black h6 {
+    color: #000;
+}
+.card.blue a, .card.black a {
+    color: #000;
+}
+.interior .content h2 {
+    margin-bottom: 10px !important;
+    }
+}
