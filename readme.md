@@ -13,3 +13,13 @@
 - /_resources/js/evolve/voca-uppercase-h2.js - Example of using Voca to uppercase headers
 - /_resources/data/news.json - This is the JSON used for Pagination/Pagination and search
 - /_resources/xsl/_dmc/news-json.xsl - Example of using the DMC to create a JSON file
+
+
+
+#### Conditional Footcode Example Files:
+- conditional-footcode-common.pcf
+- conditional-footcode-xsl-if.pcf
+- /_resources/xsl/common.xsl
+- /_resources/xsl/interior-conditional-footcode-if.xsl
+
+Both examples are using ```<xsl:if test="/document/descendant::{node you want to include a script for}>``` so that it does not matter how many match, only that at least one does match.
