@@ -191,6 +191,11 @@ Defines outer html structure and common include content.
 			<!-- jQuery 1.5+ is required. Add it here if not already included. -->
 			<script src="//cdn.omniupdate.com/select-lists/v1/select-lists.min.js" defer="defer"></script>
 		</xsl:if>
+		<xsl:if test="/document/descendant::ouc:component[@name='conditional-footcode-common']">
+			<xsl:call-template name="output-include">
+			<xsl:with-param name="path">/_resources/includes/conditional-footcode.inc</xsl:with-param>
+		</xsl:call-template>
+		</xsl:if>
 	</xsl:template>
 	<!-- template for side navigation display, use this template to output the side navigation with wrapping HTML -->
 	<xsl:template name="side-navigation">
